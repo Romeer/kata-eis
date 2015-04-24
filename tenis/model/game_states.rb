@@ -13,12 +13,17 @@ end
 class GameInProgress < AbstractGameStatus
 
 	def count_point_for player
-		@score_board.last_game_point unless not self.change_state_condition? player
+		@score_board.game_point unless not self.last_game_point? player
+		@score_board.set_point unless not self.last_game_of_the_set? player
 		player.add_point_to_current_game
 	end
 
-	def change_state_condition? player
+	def last_game_point? player
 		player.current_game == 30
+	end
+
+	def last_game_of_the_set? player
+		(player.games == 5) and (self.last_game_point? player)
 	end
 end
 
@@ -28,4 +33,7 @@ class GamePoint < AbstractGameStatus
 		player.reset_game_points
 		@score_board.game_in_progress
 	end
+end
+
+class SetPoint < AbstractGameStatus
 end

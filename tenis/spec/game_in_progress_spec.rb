@@ -14,13 +14,24 @@ describe 'Testing GameInProgress' do
 	it 'Should invoke count_point_for method, delegating on the argument' do
 		expect(@mock_player).to receive(:add_point_to_current_game)
 		allow(@mock_player).to receive(:current_game) { 0 }
+		allow(@mock_player).to receive(:games) { 0 }
 		@game_state.count_point_for @mock_player
 	end
 
-	it 'when player point is equal to 40, a new game point is given to the player.' do
+	it 'when player point is equal to 30, a new game point is given to the player.' do
 		allow(@mock_player).to receive(:current_game) { 30 }
+		allow(@mock_player).to receive(:games) { 0 }
 		expect(@mock_player).to receive(:add_point_to_current_game)
-		expect(@mock_score_board).to receive(:last_game_point)
+		expect(@mock_score_board).to receive(:game_point)
+		@game_state.count_point_for @mock_player
+	end
+
+	it 'when player is equal to 30 but is the last game of the set, a new set point is given to the player' do
+		allow(@mock_player).to receive(:current_game) { 30 }
+		allow(@mock_player).to receive(:games) { 5 }
+		expect(@mock_player).to receive(:add_point_to_current_game)
+		expect(@mock_score_board).to receive(:game_point)
+		expect(@mock_score_board).to receive(:set_point)
 		@game_state.count_point_for @mock_player
 	end
 

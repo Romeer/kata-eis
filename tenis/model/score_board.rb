@@ -21,12 +21,16 @@ class ScoreBoard
 		"#{@player1.current_game}-#{@player2.current_game}"
 	end
 
-	def last_game_point
+	def game_point
 		@game_state = GamePoint.new self
 	end
 
 	def game_in_progress
 		@game_state = GameInProgress.new self
+	end
+
+	def set_point
+		@game_state = SetPoint.new self
 	end
 
 end
