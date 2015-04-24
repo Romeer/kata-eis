@@ -14,6 +14,11 @@ describe 'Player' do
 			expect(@player.current_game).to eq(15)
 		end
 
+		it 'Counting 4 points, turn current game points into 0' do
+			4.times { @player.add_point_to_current_game }
+			expect(@player.current_game).to eq(0)
+		end
+
 	end
 
 end
