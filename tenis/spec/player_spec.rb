@@ -14,9 +14,9 @@ describe 'Player' do
 			expect(@player.current_game).to eq(15)
 		end
 
-		it 'Counting 4 points, turn current game points into 0' do
-			4.times { @player.add_point_to_current_game }
-			expect(@player.current_game).to eq(0)
+		it 'Counting 3 points, turn current game points into 40' do
+			3.times { @player.add_point_to_current_game }
+			expect(@player.current_game).to eq(40)
 		end
 
 	end
@@ -28,9 +28,9 @@ describe 'Player' do
 			expect(@player.games).to eq(1)
 		end
 
-		it 'After winning the sixth game, games count is 0' do
-			6.times { @player.add_point_to_games }
-			expect(@player.games).to eq (0)
+		it 'After winning the fifthth game, games count is 5' do
+			5.times { @player.add_point_to_games }
+			expect(@player.games).to eq (5)
 		end
 	end
 

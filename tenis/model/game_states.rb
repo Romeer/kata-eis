@@ -8,10 +8,6 @@ class AbstractGameStatus
 		raise NotImplementedError.new
 	end
 
-	def change_state_condition? player
-		raise NotImplementedError.new
-	end
-
 end
 
 class GameInProgress < AbstractGameStatus
@@ -23,5 +19,13 @@ class GameInProgress < AbstractGameStatus
 
 	def change_state_condition? player
 		player.current_game == 30
+	end
+end
+
+class GamePoint < AbstractGameStatus
+
+	def count_point_for player
+		player.reset_game_points
+		@score_board.game_in_progress
 	end
 end

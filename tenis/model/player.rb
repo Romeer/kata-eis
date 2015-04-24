@@ -14,22 +14,19 @@ class Player
 		when 0, 15
 			@current_game += 15
 		when 30
-			@current_game += 40
-		else
-			@current_game = 0
+			@current_game += 10
 		end
 	end
 
 	def add_point_to_games
-		case @games
-		when 5
-			@games = 0
-		else
-			@games += 1
-		end
+		@games += 1
 	end
 
 	def add_point_to_sets
 		@sets += 1
+	end
+
+	def reset_game_points
+		@current_game = 0
 	end
 end
