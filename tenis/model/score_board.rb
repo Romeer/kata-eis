@@ -41,4 +41,8 @@ class ScoreBoard
 		@game_state = SetPoint.new self
 	end
 
+	def clean_game_points
+		@player1.reset_game_points
+		@player2.reset_game_points
+	end
 end

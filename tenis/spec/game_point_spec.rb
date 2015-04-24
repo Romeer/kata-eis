@@ -12,7 +12,7 @@ describe 'Testing GamePoint' do
 	end
 
 	it 'When the leading player makes a point, count a game point for him and start a new game' do
-		expect(@mock_player).to receive(:reset_game_points)
+		expect(@mock_score_board).to receive(:clean_game_points)
 		expect(@mock_player).to receive(:add_point_to_games)
 		expect(@mock_score_board).to receive(:game_in_progress)
 		@game_state.count_point_for @mock_player

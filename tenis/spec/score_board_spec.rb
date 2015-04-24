@@ -56,6 +56,14 @@ describe 'ScoreBoard' do
 			expect(@score_board.games_score).to eq("0-0")
 			expect(@score_board.sets_score).to eq("1-0")
 		end
+	end
 
+	describe 'When a game finish, scores are cleaned up' do
+
+		it 'Should clean up the game score' do
+			2.times { @score_board.point_for_player1 }
+			4.times { @score_board.point_for_player2 }
+			expect(@score_board.current_game_score).to eq("0-0")
+		end
 	end
 end
