@@ -10,8 +10,11 @@ class Player
 	attr_reader :sets, :games, :current_game
 
 	def add_point_to_current_game
-		unless @current_game == 40
+		case @current_game
+		when 0, 15
 			@current_game += 15
+		when 30
+			@current_game += 40
 		else
 			@current_game = 0
 		end
