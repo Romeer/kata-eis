@@ -21,6 +21,11 @@ class Player
 	end
 
 	def add_point_to_games
-		@games += 1
+		case @games
+		when 5
+			@games = 0
+		else
+			@games += 1
+		end
 	end
 end

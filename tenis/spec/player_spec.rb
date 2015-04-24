@@ -28,6 +28,11 @@ describe 'Player' do
 			expect(@player.games).to eq(1)
 		end
 
+		it 'After winning the sixth game, games count is 0' do
+			6.times { @player.add_point_to_games }
+			expect(@player.games).to eq (0)
+		end
+
 	end
 
 end
