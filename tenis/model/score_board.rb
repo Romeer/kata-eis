@@ -45,4 +45,9 @@ class ScoreBoard
 		@player1.reset_game_points
 		@player2.reset_game_points
 	end
+
+	def clean_games
+		@player1.reset_games_points
+		@player2.reset_games_points
+	end
 end

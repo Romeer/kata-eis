@@ -13,8 +13,8 @@ describe 'Testing SetPoint' do
 
 	it 'After winning a point, the leading player gets a set point.' do
 		expect(@mock_player).to receive(:add_point_to_sets)
-		expect(@mock_player).to receive(:reset_game_points)
-		expect(@mock_player).to receive(:reset_games_points)
+		expect(@mock_score_board).to receive(:clean_game_points)
+		expect(@mock_score_board).to receive(:clean_games)
 		expect(@mock_score_board).to receive(:game_in_progress)
 		@game_state.count_point_for @mock_player
 	end

@@ -40,8 +40,8 @@ class SetPoint < AbstractGameStatus
 
 	def count_point_for player
 		player.add_point_to_sets
-		player.reset_game_points
-		player.reset_games_points
+		@score_board.clean_game_points
+		@score_board.clean_games
 		@score_board.game_in_progress
 	end
 end
