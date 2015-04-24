@@ -29,4 +29,8 @@ class Player
 	def reset_game_points
 		@current_game = 0
 	end
+
+	def reset_games_points
+		@games = 0
+	end
 end

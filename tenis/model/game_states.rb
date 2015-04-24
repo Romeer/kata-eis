@@ -31,6 +31,7 @@ class GamePoint < AbstractGameStatus
 
 	def count_point_for player
 		player.reset_game_points
+		player.add_point_to_games
 		@score_board.game_in_progress
 	end
 end
