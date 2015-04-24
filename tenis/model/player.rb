@@ -19,4 +19,8 @@ class Player
 			@current_game = 0
 		end
 	end
+
+	def add_point_to_games
+		@games += 1
+	end
 end
