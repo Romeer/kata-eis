@@ -6,7 +6,7 @@ class ScoreBoard
 	def initialize
 		@player1 = Player.new
 		@player2 = Player.new
-		@game_state = GameInProgress.new 
+		@game_state = GameInProgress.new self
 	end
 
 	def point_for_player1
@@ -21,5 +21,7 @@ class ScoreBoard
 		"#{@player1.current_game}-#{@player2.current_game}"
 	end
 
+	def last_game_point
+	end
 
 end
