@@ -32,7 +32,13 @@ describe 'Player' do
 			6.times { @player.add_point_to_games }
 			expect(@player.games).to eq (0)
 		end
-
 	end
 
+	describe 'Counting sets.' do
+
+		it 'After winning a set, set count should be 1' do
+			@player.add_point_to_sets
+			expect(@player.sets).to eq(1)
+		end
+	end
 end

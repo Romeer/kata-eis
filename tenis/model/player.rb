@@ -28,4 +28,8 @@ class Player
 			@games += 1
 		end
 	end
+
+	def add_point_to_sets
+		@sets += 1
+	end
 end
