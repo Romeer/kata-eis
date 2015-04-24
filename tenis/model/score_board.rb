@@ -13,6 +13,10 @@ class ScoreBoard
 		@game_state.count_point_for @player1
 	end
 
+	def point_for_player2
+		@game_state.count_point_for @player2
+	end
+
 	def current_game_score
 		"#{@player1.current_game}-#{@player2.current_game}"
 	end
