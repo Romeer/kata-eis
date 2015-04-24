@@ -47,4 +47,15 @@ describe 'ScoreBoard' do
 			expect(@score_board.games_score).to eq("1-0")
 		end
 	end
+
+	describe 'Winning a set' do
+
+		it 'A player wins a set, scoring 6 games in a row' do
+			24.times { @score_board.point_for_player1 }
+			expect(@score_board.current_game_score).to eq("0-0")
+			expect(@score_board.games_score).to eq("0-0")
+			expect(@score_board.sets_score).to eq("1-0")
+		end
+
+	end
 end
