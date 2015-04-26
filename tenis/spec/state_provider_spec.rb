@@ -17,6 +17,8 @@ describe 'StateProvider' do
 		allow(@mock_player2).to receive(:current_game) { 0 }
 		allow(@mock_player1).to receive(:games) { 0 }
 		allow(@mock_player2).to receive(:games) { 0 }
+		allow(@mock_player1).to receive(:sets) { 0 }
+		allow(@mock_player2).to receive(:sets) { 0 }
 		expect(@state_provider.get_state).to be_an_instance_of(GameInProgress)
 	end
 
@@ -25,7 +27,19 @@ describe 'StateProvider' do
 		allow(@mock_player2).to receive(:current_game) { 0 }
 		allow(@mock_player1).to receive(:games) { 0 }
 		allow(@mock_player2).to receive(:games) { 0 }
+		allow(@mock_player1).to receive(:sets) { 0 }
+		allow(@mock_player2).to receive(:sets) { 0 }
 		expect(@state_provider.get_state).to be_an_instance_of(GamePoint)
+	end
+
+	it 'Should return SetPoint state.' do
+		allow(@mock_player1).to receive(:current_game) { 40 }
+		allow(@mock_player2).to receive(:current_game) { 0 }
+		allow(@mock_player1).to receive(:games) { 5 }
+		allow(@mock_player2).to receive(:games) { 0 }
+		allow(@mock_player1).to receive(:sets) { 0 }
+		allow(@mock_player2).to receive(:sets) { 0 }
+		expect(@state_provider.get_state).to be_an_instance_of(SetPoint)
 	end
 
 end

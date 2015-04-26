@@ -79,6 +79,24 @@ class SetPoint < AbstractGameStatus
 			@score_board.ended_game
 		end
 	end
+
+	def is_current_status? player1, player2
+		(self.is_game_point player1, player2) && (self.not_equal_points player1, player2) &&
+		(self.set_point player1, player2)
+	end
+
+	def not_equal_points player1, player2
+		(player1.current_game != player2.current_game )
+	end
+
+	def is_game_point player1, player2
+		[player1,player2].map { | p | p.current_game }.max == 40 
+	end
+
+	def set_point player1, player2
+		[player1,player2].map { |p| p.games}.max == 5
+	end
+
 end
 
 class EndedGame < AbstractGameStatus
@@ -86,4 +104,5 @@ class EndedGame < AbstractGameStatus
 	def game_status
 		"The game has ended! The result was:"
 	end
+	
 end
