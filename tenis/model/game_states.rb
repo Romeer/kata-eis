@@ -104,5 +104,8 @@ class EndedGame < AbstractGameStatus
 	def game_status
 		"The game has ended! The result was:"
 	end
-	
+
+	def is_current_status? player1, player2
+		[player1, player2].map { |p| p.sets }.max == 2
+	end
 end
