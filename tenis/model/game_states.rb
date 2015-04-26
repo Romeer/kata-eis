@@ -36,7 +36,7 @@ class GameInProgress < AbstractGameStatus
 	end
 
 	def is_current_status? player1, player2
-		[player1,player2].map { | p | p.current_game }.max < 40 
+		[player1,player2].map { | p | p.current_game }.max < 30 
 	end
 end
 
@@ -46,6 +46,23 @@ class GamePoint < AbstractGameStatus
 		@score_board.clean_game_points
 		player.add_point_to_games
 		@score_board.game_in_progress
+	end
+
+	def is_current_status? player1, player2
+		(self.not_set_point player1, player2) && (self.not_equal_points player1, player2) && 
+		(self.is_game_point player1, player2)
+	end
+
+	def not_set_point player1, player2
+		[player1,player2].map { |p| p.games}.max < 5
+	end
+
+	def not_equal_points player1, player2
+		(player1.current_game != player2.current_game )
+	end
+
+	def is_game_point player1, player2
+		[player1,player2].map { | p | p.current_game }.max == 40 
 	end
 end
 

@@ -15,7 +15,17 @@ describe 'StateProvider' do
 	it 'Should return GameInProgress state.' do
 		allow(@mock_player1).to receive(:current_game) { 0 }
 		allow(@mock_player2).to receive(:current_game) { 0 }
+		allow(@mock_player1).to receive(:games) { 0 }
+		allow(@mock_player2).to receive(:games) { 0 }
 		expect(@state_provider.get_state).to be_an_instance_of(GameInProgress)
+	end
+
+	it 'Should return GamePoint state.' do
+		allow(@mock_player1).to receive(:current_game) { 40 }
+		allow(@mock_player2).to receive(:current_game) { 0 }
+		allow(@mock_player1).to receive(:games) { 0 }
+		allow(@mock_player2).to receive(:games) { 0 }
+		expect(@state_provider.get_state).to be_an_instance_of(GamePoint)
 	end
 
 end
