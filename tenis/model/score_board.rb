@@ -25,6 +25,10 @@ class ScoreBoard
 		"#{@player1.current_game}-#{@player2.current_game}"
 	end
 
+	def advantage
+		"Player1 advantage #{@player1.advantage_stauts} - Player2 advantage #{@player2.advantage_stauts}"
+	end
+
 	def games_score
 		"#{@player1.games}-#{@player2.games}"
 	end

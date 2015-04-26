@@ -52,4 +52,14 @@ describe 'StateProvider' do
 		expect(@state_provider.get_state).to be_an_instance_of(EndedGame)
 	end
 
+	it 'Should return DeuceGame state.' do
+		allow(@mock_player1).to receive(:current_game) { 40 }
+		allow(@mock_player2).to receive(:current_game) { 40 }
+		allow(@mock_player1).to receive(:games) { 0 }
+		allow(@mock_player2).to receive(:games) { 0 }
+		allow(@mock_player1).to receive(:sets) { 0 }
+		allow(@mock_player2).to receive(:sets) { 0 }
+		expect(@state_provider.get_state).to be_an_instance_of(DeuceGame)
+	end
+
 end

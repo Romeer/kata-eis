@@ -5,9 +5,11 @@ class Player
 		@sets = 0
 		@games = 0
 		@current_game = 0
+		@advantage_deuce = false
 	end
 
 	attr_reader :sets, :games, :current_game
+	attr_accessor :advantage_deuce
 
 	def add_point_to_current_game
 		case @current_game
