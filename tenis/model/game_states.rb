@@ -85,12 +85,12 @@ class DeuceGame < AbstractGameStatus
 	end
 
 	def count_point_for player
-		if player.advantage_status
+		if player.advantage_deuce
 			@alter_state.trigger_state_action player
-		elsif @player1.advantage_status && @player2.advantage_status #Shitty if statement.
-			[@player1,@player2].map { |p| p.advantage_status = false }
+		elsif @player1.advantage_deuce && @player2.advantage_deuce #Shitty if statement.
+			[@player1,@player2].map { |p| p.advantage_deuce = false }
 		else
-			player.advantage_status = true
+			player.advantage_deuce = true
 		end
 	end
 

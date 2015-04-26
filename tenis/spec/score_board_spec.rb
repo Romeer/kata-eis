@@ -74,5 +74,20 @@ describe 'ScoreBoard' do
 		end
 	end
 
+	describe 'Deuce game.' do
+
+		it 'Score should be 40-40.' do
+			3.times { @score_board.point_for_player2 }
+			3.times { @score_board.point_for_player1 }
+			expect(@score_board.current_game_score).to eq("40-40")
+		end
+
+		it 'advantage was given to player1.' do
+			3.times { @score_board.point_for_player2 }
+			4.times { @score_board.point_for_player1 }
+			expect(@score_board.advantage).to eq("Player1 advantage true - Player2 advantage false")
+		end
+
+	end
 	
 end
