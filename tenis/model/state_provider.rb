@@ -10,13 +10,12 @@ class StateProvider
 	end
 
 	def get_state
-		self.descendants(AbstractGameStatus).detect { |klass| klass.send(:is_current_status?, 
-																					@player1, @player2) }
+		self.descendants(AbstractGameStatus).detect { |klass| klass.send(:is_current_status?) }
 	end
 
 	protected
 		def descendants parent
 			ObjectSpace.each_object(Class).select { |klass| klass < parent }
-												.map { |klass| klass.new ScoreBoard.new }
+												.map { |klass| klass.new @player1, @player2}
 		end
 end
