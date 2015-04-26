@@ -1,11 +1,20 @@
 class AbstractGameStatus
 
-	def initialize score_board
+	def initialize score_board	
 		@score_board = score_board
 	end
 
 	def count_point_for player
 		raise NotImplementedError.new
+	end
+
+	def game_status
+		"The game is still in course! The set scores are:"
+	end
+
+	def is_current_status? player1, player2
+		#raise NotImplementedError.new
+		false
 	end
 
 end
@@ -25,6 +34,10 @@ class GameInProgress < AbstractGameStatus
 	def last_game_of_the_set? player
 		(player.games == 5) and (self.last_game_point? player)
 	end
+
+	def is_current_status? player1, player2
+		[player1,player2].map { | p | p.current_game }.max < 40 
+	end
 end
 
 class GamePoint < AbstractGameStatus
@@ -42,6 +55,18 @@ class SetPoint < AbstractGameStatus
 		player.add_point_to_sets
 		@score_board.clean_game_points
 		@score_board.clean_games
-		@score_board.game_in_progress
+		case player.sets
+		when 0,1
+			@score_board.game_in_progress
+		else
+			@score_board.ended_game
+		end
+	end
+end
+
+class EndedGame < AbstractGameStatus
+
+	def game_status
+		"The game has ended! The result was:"
 	end
 end

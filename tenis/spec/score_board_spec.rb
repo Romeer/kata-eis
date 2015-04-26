@@ -73,4 +73,6 @@ describe 'ScoreBoard' do
 			expect(@score_board.sets_score).to eq("1-0")
 		end
 	end
+
+	
 end

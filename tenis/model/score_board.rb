@@ -41,6 +41,10 @@ class ScoreBoard
 		@game_state = SetPoint.new self
 	end
 
+	def ended_game
+		@game_state = EndedGame.new
+	end
+
 	def clean_game_points
 		@player1.reset_game_points
 		@player2.reset_game_points
@@ -49,5 +53,9 @@ class ScoreBoard
 	def clean_games
 		@player1.reset_games_points
 		@player2.reset_games_points
+	end
+
+	def game_result
+		"#{@game_state.game_status} #{[@player1.sets,@player2.sets].max}"
 	end
 end
