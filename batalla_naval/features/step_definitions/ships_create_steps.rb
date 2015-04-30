@@ -11,5 +11,5 @@ Given(/^I create a small ship in position "(\d+):(\d+)"$/) do |xCoord, yCoord|
 end
 
 Then(/^position "(\d+):(\d+)" is not empty$/) do |xCoord, yCoord|
-  pending # Write code here that turns the phrase above into concrete actions
+  	expect(@board.is_occupied? xCoord.to_i, yCoord.to_i).to eq(true)
 end
