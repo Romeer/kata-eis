@@ -10,3 +10,8 @@ end
 Then(/^I get hit$/) do
 	expect(@result).to eq("Hit")
 end
+
+Then(/^I get miss$/) do
+  expect(@result).to eq("Miss")
+end
+

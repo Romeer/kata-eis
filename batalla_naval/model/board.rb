@@ -3,7 +3,7 @@ require_relative './ships.rb'
 class Board
 
 	def initialize xcoord, ycoord
-		@inner_rep = Array.new(xcoord) {Array.new(ycoord)}
+		@inner_rep = Array.new(xcoord) {Array.new(ycoord) { NullShip.new } }
 	end
 
 	def create_small_ship xcoord, ycoord

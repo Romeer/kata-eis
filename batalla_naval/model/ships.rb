@@ -31,3 +31,14 @@ class LargeShip < AbstractShip
 		end
 	end
 end
+
+class NullShip < AbstractShip
+
+	def occupied?
+		false
+	end
+
+	def shoot
+		"Miss"
+	end
+end

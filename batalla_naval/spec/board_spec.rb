@@ -37,4 +37,8 @@ describe 'a Board' do
 		expect(@board.shoot 2, 2).to eq("Hit")
 	end
 
+	it 'Shooting an empty location.' do
+		expect(@board.shoot 1,1).to eq("Miss")
+	end
+
 end

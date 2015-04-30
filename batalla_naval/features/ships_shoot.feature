@@ -7,3 +7,7 @@ Background:
     Scenario: Shoot and hit
     Given I shoot to position “3:3”
     Then I get hit
+
+    Scenario: Shoot and miss
+    Given I shoot to position “1:1”
+    Then I get miss
