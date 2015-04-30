@@ -7,9 +7,14 @@ Given(/^a board with dimensions "(\d+)" x "(\d+)"$/) do |xCoord, yCoord|
 end
 
 Given(/^I create a small ship in position "(\d+):(\d+)"$/) do |xCoord, yCoord|
-  	@board.create_ship SmallShip.new, xCoord.to_i, yCoord.to_i
+  	@board.create_small_ship xCoord.to_i, yCoord.to_i
 end
 
 Then(/^position "(\d+):(\d+)" is not empty$/) do |xCoord, yCoord|
   	expect(@board.is_occupied? xCoord.to_i, yCoord.to_i).to eq(true)
 end
+
+Given(/^I create a large ship in position "(\d+):(\d+)"$/) do |xCoord, yCoord|
+  @board.create_large_ship xCoord.to_i, yCoord.to_i
+end
+
