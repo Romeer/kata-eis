@@ -14,6 +14,14 @@ class Board
 		(ycoord..ycoord+1).map { |y| @inner_rep[xcoord][y] = LargeShip.new }
 	end
 
+	def shoot xcoord, ycoord
+		@inner_rep[xcoord][ycoord].shoot
+	end
+
+	def eval_damages xcoord, ycoord
+		@inner_rep[xcoord][ycoord].get_damages
+	end
+
 	def is_occupied? xcoord, ycoord
 		@inner_rep[xcoord][ycoord].occupied?
 	end

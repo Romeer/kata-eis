@@ -27,4 +27,14 @@ describe 'a Board' do
 		expect(@board.is_occupied? 4, 6).to eq(true)
 	end
 
+	it 'I create a Small ship in x => 2 y => 2 and i shoot it.' do
+		@board.create_small_ship 2, 2
+		expect(@board.shoot 2, 2).to eq("Sink")
+	end
+
+	it 'I create a Large Ship in x => 2 y => 2 and i shoot it.' do
+		@board.create_large_ship 2, 2
+		expect(@board.shoot 2, 2).to eq("Hit")
+	end
+
 end
