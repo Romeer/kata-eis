@@ -11,7 +11,8 @@ class Board
 	end
 
 	def create_large_ship xcoord, ycoord
-		(ycoord..ycoord+1).map { |y| @inner_rep[xcoord][y] = LargeShip.new }
+		large_ship = LargeShip.new
+		(ycoord..ycoord+1).map { |y| @inner_rep[xcoord][y] = large_ship }
 	end
 
 	def shoot xcoord, ycoord

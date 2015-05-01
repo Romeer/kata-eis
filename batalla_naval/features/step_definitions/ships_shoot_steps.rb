@@ -15,3 +15,8 @@ Then(/^I get miss$/) do
   expect(@result).to eq("Miss")
 end
 
+Then(/^I get sink$/) do
+  expect(@result).to eq("Sink")
+end
+
+

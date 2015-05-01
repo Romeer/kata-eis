@@ -11,3 +11,9 @@ Background:
     Scenario: Shoot and miss
     Given I shoot to position “1:1”
     Then I get miss
+
+    Scenario: Shoot and sink
+    Given I shoot to position “3:4”
+    Then I get hit
+	And I shoot to position “3:3”
+    Then I get sink
