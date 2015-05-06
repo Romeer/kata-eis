@@ -7,11 +7,14 @@ class Board
 	end
 
 	def create_small_ship xcoord, ycoord
-		@inner_rep[xcoord][ycoord] = SmallShip.new
+		small_ship = SmallShip.new
+		sanitize_input(small_ship, xcoord, ycoord)
+		@inner_rep[xcoord][ycoord] = small_ship
 	end
 
 	def create_large_ship xcoord, ycoord
 		large_ship = LargeShip.new
+		sanitize_input(large_ship, xcoord, ycoord)
 		(ycoord..ycoord+1).map { |y| @inner_rep[xcoord][y] = large_ship }
 	end
 
@@ -26,5 +29,12 @@ class Board
 	def is_occupied? xcoord, ycoord
 		@inner_rep[xcoord][ycoord].occupied?
 	end
+
+	protected 
+		def sanitize_input ship, xcoord, ycoord
+			xFreeSpace = @inner_rep.length - xcoord
+			yFreeSpace = @inner_rep[0].length - ycoord
+			raise "Out of bounds" unless ship.fits?(xFreeSpace,yFreeSpace)
+		end
 
 end

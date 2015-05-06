@@ -27,6 +27,14 @@ describe 'a Board' do
 		expect(@board.is_occupied? 4, 6).to eq(true)
 	end
 
+	it 'Should raise an exception when an invalid location for the creation of a boat is given' do
+		expect { @board.create_large_ship 4, 10 }.to raise_error "Out of bounds"
+	end
+
+	it 'Should raise an exception adding a large ship in a border of the board' do
+		expect { @board.create_large_ship 6, 7}.to raise_error "Out of bounds"
+	end
+
 	it 'I create a Small ship in x => 2 y => 2 and i shoot it.' do
 		@board.create_small_ship 2, 2
 		expect(@board.shoot 2, 2).to eq("Sink")

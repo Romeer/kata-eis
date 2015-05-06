@@ -11,3 +11,6 @@ Background:
     Given I create a large ship in position "3:3"
     Then position "3:3" is not empty    
     And position "3:4" is not empty
+
+    Scenario: Create a large ship in an invalid location
+    When I create a large ship in position "5:6" it should fail with "Out of bounds"
