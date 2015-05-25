@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../model/board.rb'
-require_relative '../model/ships.rb'
+require_relative '../app/model/board.rb'
+require_relative '../app/model/ships.rb'
 
 describe 'a Board' do
 

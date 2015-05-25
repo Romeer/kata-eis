@@ -1,5 +1,5 @@
-require_relative '../../model/board.rb'
-require_relative '../../model/ships.rb'
+require_relative '../../app/model/board.rb'
+require_relative '../../app/model/ships.rb'
 
 
 Given(/^a board with dimensions "(\d+)" x "(\d+)"$/) do |xCoord, yCoord|
@@ -21,6 +21,3 @@ end
 When(/^I create a large ship in position "([^"]*)" it should fail with "([^"]*)"$/) do |xCoord, yCoord|
 	expect {@board.create_large_ship xCoord.to_i, yCoord.to_i}.to raise_error "Out of bounds"
 end
-
-
-

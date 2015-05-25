@@ -18,5 +18,3 @@ end
 Then(/^I get sink$/) do
   expect(@result).to eq("Sink")
 end
-
-
