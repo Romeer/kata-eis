@@ -3,7 +3,7 @@ require_relative '../../app/model/ships.rb'
 
 
 Given(/^a board with dimensions "(\d+)" x "(\d+)"$/) do |width, height|
-  visit '/battleship'
+  visit '/'
   fill_in 'width', :with => width
   fill_in 'height', :with => height
   click_button 'button_new_board'

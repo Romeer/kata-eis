@@ -7,11 +7,7 @@ module Battleship
 
     enable :sessions
 
-    #get '/' do
-      #File.read(File.join('public', 'index.html'))
-    #end
-
-    get 'battleship' do
+    get '' do
       render 'batalla/inicio'
     end
 

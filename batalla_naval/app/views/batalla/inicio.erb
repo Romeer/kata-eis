@@ -3,57 +3,102 @@
 <html lang="en-US">
 	<head>
     <meta charset="utf-8">
-	</head>
+  </head>
 	<body>
+	<div class="container">
+		<div class="jumbotron">
 
-	<form method="POST" action="new_board">
-		 <%= csrf_token_field %>
-		 Establecer nuevo valor para nombre:
-		<input type="text" name="width" />
-		<input type="text" name="height" />
-		<input type="submit" value="submit" id="button_new_board"/>
-	</form>
+		<form method="POST" action="new_board">
+			 <%= csrf_token_field %>
+			 <p>Define a new board:</p>
+			<div class="row">
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Width" name="width">
+				</div>
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Height" name="height">
+				</div>
+			</div>
+			<input type="submit" class="btn btn-primary" value="submit" id="button_new_board"/>
+		</form>
 
-	<form method="POST" action="small_ship">
-		 <%= csrf_token_field %>
-		 New small ship:
-		<input type="text" name="x_coord_small" />
-		<input type="text" name="y_coord_small" />
-		<input type="submit" value="submit" id="button_new_small_ship"/>
-	</form>
+		<form method="POST" action="small_ship">
+			 <%= csrf_token_field %>
+			 <p>New small ship:</p>
+			<div class="row">
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis X" name="x_coord_small">
+				</div>
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis Y" name="y_coord_small">
+				</div>
+			</div>
+			<input type="submit" class="btn btn-primary" value="submit" id="button_new_small_ship"/>
+		</form>
 
-	<% if @small_ship_error.present? %>
-		<p class="position-message"><%= @small_ship_error %></p>
-	<% end %>
+		<% if @small_ship_error.present? %>
+			<span class="label label-danger"><%= @small_ship_error %></span>
+		<% end %>
 
-	<form method="POST" action="large_ship">
-		 <%= csrf_token_field %>
-		 New large ship:
-		<input type="text" name="x_coord_large" />
-		<input type="text" name="y_coord_large" />
-		<input type="submit" value="submit" id="button_new_large_ship"/>
-	</form>
+		<form method="POST" action="large_ship">
+			 <%= csrf_token_field %>
+			 <p>New large ship:</p>
+			<div class="row">
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis X" name="x_coord_large">
+				</div>
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis Y" name="y_coord_large">
+				</div>
+			</div>
+			<input type="submit" class="btn btn-primary" value="submit" id="button_new_large_ship"/>
+		</form>
 
-	<% if @large_ship_error.present? %>
-		<p class="position-message"><%= @large_ship_error %></p>
-	<% end %>
+		<% if @large_ship_error.present? %>
+			<span class="label label-danger"><%= @large_ship_error %></span>
+		<% end %>
 
 
-	<form method="GET" action="is_occupied">
-		<%= csrf_token_field %>
-		Check if position is occupied = <%= @nombre %>
-		<input type="text" name="x_coord" />
-		<input type="text" name="y_coord" />
-		<input type="submit" value="submit" id="button_is_occupied"/>
-	</form>
+		<form method="GET" action="is_occupied">
+			<%= csrf_token_field %>
+			<p>
+				<span class = class="label label-primary">
+					Check if position is occupied: <%= @nombre %>
+				</span>
+			</p>
+			<div class="row">
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis X" name="x_coord">
+				</div>
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis Y" name="y_coord">
+				</div>
+			</div>
+			<input type="submit" class="btn btn-primary" value="submit" id="button_is_occupied"/>
+		</form>
 
-	<form method="POST" action="shoot">
-		<%= csrf_token_field %>
-		Shoot result = <%= @shoot_result %>
-		<input type="text" name="shoot_x" />
-		<input type="text" name="shoot_y" />
-		<input type="submit" value="submit" id="button_shoot"/>
-	</form>
+		<form method="POST" action="shoot">
+			<%= csrf_token_field %>
+			<p>
+				<span class = class="label label-primary">
+					Shoot result: <%= @shoot_result %>
+				</span>
+			</p>
 
-	</body>
+			<div class="row">
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis X" name="shoot_x">
+				</div>
+				<div class="col-lg-6">
+					<input type="text" class="form-control" placeholder="Axis Y" name="shoot_y">
+				</div>
+			</div>
+			<input type="submit" class="btn btn-primary" value="submit" id="button_shoot"/>
+		</form>
+	</div>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </html>
