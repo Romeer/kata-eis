@@ -40,6 +40,12 @@ module Battleship
       render 'batalla/inicio'
     end
 
+    post 'shoot' do
+      board = session[:board]
+      @shoot_result = board.shoot(params[:shoot_x].to_i,params[:shoot_y].to_i)
+      render 'batalla/inicio'
+    end
+
     get 'is_occupied' do
       board = session[:board]
       @nombre = board.is_occupied?(params[:x_coord].to_i,params[:y_coord].to_i).to_s

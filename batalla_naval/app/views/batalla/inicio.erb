@@ -47,5 +47,13 @@
 		<input type="submit" value="submit" id="button_is_occupied"/>
 	</form>
 
+	<form method="POST" action="shoot">
+		<%= csrf_token_field %>
+		Shoot result = <%= @shoot_result %>
+		<input type="text" name="shoot_x" />
+		<input type="text" name="shoot_y" />
+		<input type="submit" value="submit" id="button_shoot"/>
+	</form>
+
 	</body>
 </html>
