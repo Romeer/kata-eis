@@ -4,7 +4,7 @@ module Battleship
     register Padrino::Helpers
 
     enable :sessions
-    
+
     get '/' do
       File.read(File.join('public', 'index.html'))
     end
@@ -15,7 +15,7 @@ module Battleship
 
     post 'mipagina' do
       @nombre = params[:nombre]
-      render 'batalla/inicio' 
+      render 'batalla/inicio'
     end
 
   end
