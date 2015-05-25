@@ -6,16 +6,45 @@
 	</head>
 	<body>
 
-	<h1>Hola</h1>
-
-	<p>El parametro nombre vale: <%= @nombre %></p>
-	
-
-	<form method="POST" action="mipagina">
+	<form method="POST" action="new_board">
 		 <%= csrf_token_field %>
 		 Establecer nuevo valor para nombre:
-		<input type="text" name="nombre" />
-		<input type="submit" value="enviar" id="boton_enviar"/>
+		<input type="text" name="width" />
+		<input type="text" name="height" />
+		<input type="submit" value="submit" id="button_new_board"/>
+	</form>
+
+	<form method="POST" action="small_ship">
+		 <%= csrf_token_field %>
+		 New small ship:
+		<input type="text" name="x_coord_small" />
+		<input type="text" name="y_coord_small" />
+		<input type="submit" value="submit" id="button_new_small_ship"/>
+	</form>
+
+	<% if @small_ship_error.present? %>
+		<p class="position-message"><%= @small_ship_error %></p>
+	<% end %>
+
+	<form method="POST" action="large_ship">
+		 <%= csrf_token_field %>
+		 New large ship:
+		<input type="text" name="x_coord_large" />
+		<input type="text" name="y_coord_large" />
+		<input type="submit" value="submit" id="button_new_large_ship"/>
+	</form>
+
+	<% if @large_ship_error.present? %>
+		<p class="position-message"><%= @large_ship_error %></p>
+	<% end %>
+
+
+	<form method="GET" action="is_occupied">
+		<%= csrf_token_field %>
+		Check if position is occupied = <%= @nombre %>
+		<input type="text" name="x_coord" />
+		<input type="text" name="y_coord" />
+		<input type="submit" value="submit" id="button_is_occupied"/>
 	</form>
 
 	</body>

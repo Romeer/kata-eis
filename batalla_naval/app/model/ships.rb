@@ -22,7 +22,7 @@ class SmallShip < AbstractShip
   end
 
   def fits? xFreeSpace, yFreeSpace
-    (xFreeSpace >= 1) & (xFreeSpace >= 1 )
+    (xFreeSpace > 0) & (yFreeSpace > 0 )
   end
 end
 
@@ -40,7 +40,7 @@ class LargeShip < AbstractShip
   end
 
   def fits? xFreeSpace, yFreeSpace
-    (yFreeSpace >= 2) & (xFreeSpace >= 1)
+    (yFreeSpace > 1) & (xFreeSpace > 0)
   end
 end
 

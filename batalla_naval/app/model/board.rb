@@ -15,6 +15,7 @@ class Board
   def create_large_ship xcoord, ycoord
     large_ship = LargeShip.new
     sanitize_input(large_ship, xcoord, ycoord)
+    raise 'Already occupied' if self.is_occupied? xcoord, ycoord+1
     (ycoord..ycoord+1).map { |y| @inner_rep[xcoord][y] = large_ship }
   end
 
@@ -35,6 +36,7 @@ class Board
     xFreeSpace = @inner_rep.length - xcoord
     yFreeSpace = @inner_rep[0].length - ycoord
     raise "Out of bounds" unless ship.fits?(xFreeSpace,yFreeSpace)
+    raise 'Already occupied' if self.is_occupied? xcoord, ycoord
   end
 
 end
